@@ -20,7 +20,7 @@ Creature.loadCreatures = () => {
 
 
 function readJson (){
-  $.get('./data/page-1.json', data => {
+  $.get('./data/page-2.json', data => {
     data.forEach(item => {
       allCreatures.push(new Creature(item));
     });

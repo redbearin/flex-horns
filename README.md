@@ -5,9 +5,9 @@ Estimate of time needed to complete: 1 hour (pesimistically 2 hrs)
 
 Start time:  10:45am
 
-Finish time: 11:45 am
+Finish time: 11:10 am
 
-Actual time needed to complete: ______
+Actual time needed to complete: 25 minutes 
 
 
 Number and name of feature: #2 Templating
