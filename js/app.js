@@ -55,7 +55,7 @@ Creature.prototype.toHtml = function(){
   return compiledTemplate(this);
 };
 
-creatureDataSet.forEach(creatureObject => {
+(page-1.json).forEach(creatureObject => {
   allCreatures.push(new Creature(creatureObject));
 })
 
