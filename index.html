@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/module.css">
 
-    <script>
-        <div id="creature-template" type="text/x-handlebars-template">
+    <script id="creature-template" type="text/x-handlebars-template">
+        <div data="{{keyword}}">
           <h2>{{title}}</h2>
-          <img src="{{image_url}}" alt=""></img>
+          <img src="{{image_url}}" alt="" />
           <p>{{description}}</p>
         </div>
     </script>
@@ -43,8 +43,8 @@
 
   <!-- added most recent jquery link -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
-  <script>src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.amd.min.js"</script>
-  <script type="text/javascript" src="./js/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>

@@ -12,19 +12,21 @@ function Creature(animal) {
 }
 
 
-// Creature.loadCreatures = () => {
-//   console.log('loadCreatures function',allCreatures);
-//   allCreatures.forEach(creature => creature.render());
-//   checkKeywords();
-// }
+Creature.loadCreatures = () => {
+  allCreatures.forEach((animal) => {
+    console.log(animal);
+    $('#creature').append(animal.toHtml());
+  });
+}
 
 
 function readJson (){
-  $.get('./data/page-1.json', data => {
-    data.forEach(item => {
-      allCreatures.push(new Creature(item));
-    });
-  }).then(Creature.loadCreatures)
+  $.get('data/page-1.json', 'json')
+    .then( data => {
+      data.forEach(item => {
+        allCreatures.push(new Creature(item));
+      });
+    }).then(Creature.loadCreatures)
     .then(checkKeywords)
     .then(options);
 }
@@ -41,9 +43,6 @@ let checkKeywords = function() {
 }
 
 function options() {
-  console.log('creatures', allCreatures);
-  console.log('keywords', keywords);
-
   for(let i=0; i<keywords.length; i++){
     $('select').append(`<option value="${keywords[i]}">${keywords[i]}</option>`);
   }
@@ -55,11 +54,11 @@ Creature.prototype.toHtml = function(){
   return compiledTemplate(this);
 };
 
-creatureDataSet.forEach(creatureObject => {
-  allCreatures.push(new Creature(creatureObject));
-})
+// creatureDataSet.forEach(creatureObject => {
+//   allCreatures.push(new Creature(creatureObject));
+// })
 
-Creature.forEach(ourNewCreatureObject =>{
+allCreatures.forEach(ourNewCreatureObject =>{
   $('creature').append(ourNewCreatureObject.toHtml());
 });
 
@@ -78,11 +77,12 @@ Creature.forEach(ourNewCreatureObject =>{
 // }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
-$('select[name="Creature"]').on('change', function(){
+$('select').on('change', function(){
   let $selection = $(this).val();
-  $('div').hide()
-  $(`div[class="${$selection}"]`).show()
-})
+  console.log($selection);
+  $('div').hide();
+  $(`div[class="${$selection}"]`).show();
+});
 
 
 $(document).ready(function(){
