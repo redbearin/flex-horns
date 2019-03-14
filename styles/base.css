@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+  
+div {
+  border: solid 1px black;
+  box-sizing: border-box; 
+}  
+
+img{
+  width: 350px;
+}
+
+    
+

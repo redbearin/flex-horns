@@ -1,0 +1,4 @@
+@media (max-width: 768px) {
+    #a, #b, #c, #d, #i {
+        width: 480px;
+    }
