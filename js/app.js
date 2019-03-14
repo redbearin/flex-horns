@@ -12,11 +12,11 @@ function Creature(animal) {
 }
 
 
-Creature.loadCreatures = () => {
-  console.log('loadCreatures function',allCreatures);
-  allCreatures.forEach(creature => creature.render());
-  checkKeywords();
-}
+// Creature.loadCreatures = () => {
+//   console.log('loadCreatures function',allCreatures);
+//   allCreatures.forEach(creature => creature.render());
+//   checkKeywords();
+// }
 
 
 function readJson (){
@@ -49,19 +49,33 @@ function options() {
   }
 }
 
-Creature.prototype.render = function() {
-  $('main').append('<div class="clone"></div>');
-  let creatureClone = $('div[class="clone"]');
-  let creatureHtml = $('#creature-template').html();
-  creatureClone.html(creatureHtml);
+Creature.prototype.toHtml = function(){
+  let $template = $('#creature-template').html();
+  let compiledTemplate = Handlebars.compile($template);
+  return compiledTemplate(this);
+};
 
-  creatureClone.find('h2').text(this.title);
-  creatureClone.find('img').attr('src', this.image_url);
-  creatureClone.find('img').attr('alt', this.keyword);
-  creatureClone.find('p').text(this.description);
-  creatureClone.removeClass('clone');
-  creatureClone.attr('class', this.keyword);
-}
+creatureDataSet.forEach(creatureObject => {
+  allCreatures.push(new Creature(creatureObject));
+})
+
+Creature.forEach(ourNewCreatureObject =>{
+  $('creature').append(ourNewCreatureObject.toHtml());
+});
+
+// Creature.prototype.render = function() {
+//   $('main').append('<div class="clone"></div>');
+//   let creatureClone = $('div[class="clone"]');
+//   let creatureHtml = $('#creature-template').html();
+//   creatureClone.html(creatureHtml);
+
+//   creatureClone.find('h2').text(this.title);
+//   creatureClone.find('img').attr('src', this.image_url);
+//   creatureClone.find('img').attr('alt', this.keyword);
+//   creatureClone.find('p').text(this.description);
+//   creatureClone.removeClass('clone');
+//   creatureClone.attr('class', this.keyword);
+// }
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 $('select[name="Creature"]').on('change', function(){
