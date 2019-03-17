@@ -55,6 +55,7 @@ Creature.prototype.toHtml = function(){
 };
 
 
+
 allCreatures.forEach(ourNewCreatureObject =>{
   $('creature').append(ourNewCreatureObject.toHtml());
 });
