@@ -54,27 +54,10 @@ Creature.prototype.toHtml = function(){
   return compiledTemplate(this);
 };
 
-
-
 allCreatures.forEach(ourNewCreatureObject =>{
   $('creature').append(ourNewCreatureObject.toHtml());
 });
 
-// Creature.prototype.render = function() {
-//   $('main').append('<div class="clone"></div>');
-//   let creatureClone = $('div[class="clone"]');
-//   let creatureHtml = $('#creature-template').html();
-//   creatureClone.html(creatureHtml);
-
-//   creatureClone.find('h2').text(this.title);
-//   creatureClone.find('img').attr('src', this.image_url);
-//   creatureClone.find('img').attr('alt', this.keyword);
-//   creatureClone.find('p').text(this.description);
-//   creatureClone.removeClass('clone');
-//   creatureClone.attr('class', this.keyword);
-// }
-
-/*------------------------------------------------------------------------------------------------------------------------------*/
 $('select').on('change', function(){
   let $selection = $(this).val();
   console.log('selection', $selection);

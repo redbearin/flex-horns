@@ -13,18 +13,20 @@ function Creature(animal) {
 
 
 Creature.loadCreatures = () => {
-  console.log('loadCreatures function',allCreatures);
-  allCreatures.forEach(creature => creature.render());
-  checkKeywords();
+  allCreatures.forEach((animal) => {
+    $('#creature').append(animal.toHtml());
+  });
 }
 
 
 function readJson (){
-  $.get('./data/page-2.json', data => {
-    data.forEach(item => {
-      allCreatures.push(new Creature(item));
-    });
-  }).then(Creature.loadCreatures)
+  $.get('data/page-2.json', 'json')
+    .then( data => {
+      data.forEach(item => {
+        allCreatures.push(new Creature(item));
+      });
+    })
+    .then(Creature.loadCreatures)
     .then(checkKeywords)
     .then(options);
 }
@@ -41,34 +43,27 @@ let checkKeywords = function() {
 }
 
 function options() {
-  console.log('creatures', allCreatures);
-  console.log('keywords', keywords);
-
   for(let i=0; i<keywords.length; i++){
     $('select').append(`<option value="${keywords[i]}">${keywords[i]}</option>`);
   }
 }
 
-Creature.prototype.render = function() {
-  $('main').append('<div class="clone"></div>');
-  let creatureClone = $('div[class="clone"]');
-  let creatureHtml = $('#creature-template').html();
-  creatureClone.html(creatureHtml);
+Creature.prototype.toHtml = function(){
+  let $template = $('#creature-template').html();
+  let compiledTemplate = Handlebars.compile($template);
+  return compiledTemplate(this);
+};
 
-  creatureClone.find('h2').text(this.title);
-  creatureClone.find('img').attr('src', this.image_url);
-  creatureClone.find('img').attr('alt', this.keyword);
-  creatureClone.find('p').text(this.description);
-  creatureClone.removeClass('clone');
-  creatureClone.attr('class', this.keyword);
-}
+allCreatures.forEach(ourNewCreatureObject =>{
+  $('creature').append(ourNewCreatureObject.toHtml());
+});
 
-/*------------------------------------------------------------------------------------------------------------------------------*/
-$('select[name="Creature"]').on('change', function(){
+$('select').on('change', function(){
   let $selection = $(this).val();
-  $('div').hide()
-  $(`div[class="${$selection}"]`).show()
-})
+  console.log('selection', $selection);
+  $('div').hide();
+  $(`.${$selection}`).show();
+});
 
 
 $(document).ready(function(){
