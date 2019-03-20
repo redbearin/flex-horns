@@ -77,9 +77,9 @@ allCreatures.forEach(ourNewCreatureObject =>{
 /*------------------------------------------------------------------------------------------------------------------------------*/
 $('select').on('change', function(){
   let $selection = $(this).val();
-  console.log($selection);
+  console.log('selection', $selection);
   $('div').hide();
-  $(`div[class="${$selection}"]`).show();
+  $(`.${$selection}`).show();
 });
 
 
