@@ -54,9 +54,6 @@ Creature.prototype.toHtml = function(){
   return compiledTemplate(this);
 };
 
-// creatureDataSet.forEach(creatureObject => {
-//   allCreatures.push(new Creature(creatureObject));
-// })
 
 
 allCreatures.forEach(ourNewCreatureObject =>{
@@ -80,9 +77,9 @@ allCreatures.forEach(ourNewCreatureObject =>{
 /*------------------------------------------------------------------------------------------------------------------------------*/
 $('select').on('change', function(){
   let $selection = $(this).val();
-  console.log($selection);
+  console.log('selection', $selection);
   $('div').hide();
-  $(`div[class="${$selection}"]`).show();
+  $(`.${$selection}`).show();
 });
 
 
