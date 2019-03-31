@@ -1,5 +1,3 @@
-<!-- Note: you may use this starter code, but it is not a requirement -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,33 +7,39 @@
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/module.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <script id="creature-template" type="text/x-handlebars-template">
-      <div class="{{keyword}}">
-        <h2>{{title}}</h2>
-        <img src="{{image_url}}" alt="" />
+        <div class="{{keyword}}">
+          <h2>{{title}}</h2>
+          <img src="{{image_url}}" alt="" />
 
-        <p>{{description}}</p>
-      </div>
-  </script>
+          <p>{{description}}</p>
+        </div>
+    </script>
+
   </head>
   <body>
     <header>
-      <h1>The Gallery of Horns</h1>
-      <select id="option-template" name="Creature">
-        <option value="default">Filter by Keyword</option>
-      </select>
+      <h1>More Horns</h1>
       <nav>
         <ul>
           <li><a href="./index.html">horns</a></li>
           <li><a href="./more-creatures.html">more horns</a></li>
         </ul>
       </nav>
+      <div>
+        <select id="option-template" name="Creature">
+          <option value="default">Filter by Keyword</option>
+        </select>
+        <button>Sort by Horns</button>
+      </div>
+
     </header>
+
     <main>
-      <section id="creature">
-      </section>
+        <section id="creature"></section>
     </main>
+
     <footer>
       &copy; 2018 Code Fellows
     </footer>
@@ -43,7 +47,8 @@
   <!-- added most recent jquery link -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.js"></script>
-  <script type="text/javascript" src="./js/app-2.js"></script>
+  <script type="text/javascript" src="js/app-2.js"></script>
+
 </body>
 
 </html>

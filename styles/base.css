@@ -1,13 +1,16 @@
 body {
   text-align: center;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Acme', sans-serif;
 }
 
-main {
+body header h1{
+  font-size: 30px;
+  padding-top: 15px; 
+  padding-bottom: 30px;
 
 }
 
-div {
+section div {
   /* border: solid 1px black; */
   box-sizing: border-box; 
   /* box-sizing: 200px; */
@@ -23,11 +26,10 @@ div {
 
 
 main div h2 {
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
-
 
 img{
   width: 200px !important;

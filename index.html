@@ -1,5 +1,3 @@
-<!-- Note: you may use this starter code, but it is not a requirement -->
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,7 +7,7 @@
     <link rel="stylesheet" href="./styles/base.css">
     <link rel="stylesheet" href="./styles/layout.css">
     <link rel="stylesheet" href="./styles/module.css">
-
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <script id="creature-template" type="text/x-handlebars-template">
         <div class="{{keyword}}">
           <h2>{{title}}</h2>
@@ -23,15 +21,19 @@
   <body>
     <header>
       <h1>The Gallery of Horns</h1>
-      <select id="option-template" name="Creature">
-        <option value="default">Filter by Keyword</option>
-      </select>
       <nav>
         <ul>
           <li><a href="./index.html">horns</a></li>
           <li><a href="./more-creatures.html">more horns</a></li>
         </ul>
       </nav>
+      <div>
+        <select id="option-template" name="Creature">
+          <option value="default">Filter by Keyword</option>
+        </select>
+        <button>Sort by Horns</button>
+      </div>
+
     </header>
 
     <main>
