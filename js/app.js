@@ -11,18 +11,17 @@ function Creature(animal) {
   this.horns = animal.horns;
 }
 
-
+//sort creatures by title and then load
 Creature.loadCreatures = () => {
-  allCreatures.forEach((animal) => {
-    console.log(animal);
+  let sortedCreatures = allCreatures.sort((a,b) => (a.title > b.title) ? 1 : ((b.title > a.title) ? -1 : 0));
+  sortedCreatures.forEach((animal) => {
     $('#creature').append(animal.toHtml());
   });
 }
 
-
 function readJson (){
   $.get('data/page-1.json', 'json')
-    .then( data => {
+    .then(data => {
       data.forEach(item => {
         allCreatures.push(new Creature(item));
       });
@@ -32,7 +31,6 @@ function readJson (){
 }
 
 let checkKeywords = function() {
-
   if (allCreatures.length !== 0) {
     for(let i = 0; i < allCreatures.length; i++){
       if(!keywords.includes(allCreatures[i].keyword)){
@@ -54,15 +52,25 @@ Creature.prototype.toHtml = function(){
   return compiledTemplate(this);
 };
 
-allCreatures.forEach(ourNewCreatureObject =>{
-  $('creature').append(ourNewCreatureObject.toHtml());
+allCreatures.forEach(element =>{
+  $('creature').append(element.toHtml());
 });
 
 $('select').on('change', function(){
   let $selection = $(this).val();
-  console.log('selection', $selection);
   $('div').hide();
   $(`.${$selection}`).show();
+});
+
+//sorting by horns
+$('button').on('click', function(){
+  let sorted_horns = allCreatures.sort((a, b) => {
+    return a.horns - b.horns;
+  });
+  $('div').hide();
+  sorted_horns.forEach(element => {
+    $('#creature').append(element.toHtml());
+  });
 });
 
 
